@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+
+import { css } from '@emotion/react';
 import dayjs from 'dayjs/esm';
 import duration from 'dayjs/plugin/duration';
 import isToday from 'dayjs/plugin/isToday';
@@ -13,6 +16,13 @@ dayjs.extend(duration);
 dayjs.extend(isToday);
 dayjs.extend(utc);
 dayjs.extend(tz);
+
+const containerStyles = css`
+  color: #122932;
+  width: 76vw;
+  text-align: center;
+  margin: 3rem auto;
+`;
 
 function App() {
   const now = dayjs.utc();
@@ -46,9 +56,16 @@ function App() {
   const days = Math.floor(countdown.asDays());
   return (
     <>
-      <div style={{ minHeight: 'calc(100vh - 30vh)' }}>
-        <h1>Countdown timer</h1>
-        <h2>{events[eventId].name}</h2>
+      <div
+        style={{
+          height: '30vh',
+          width: '100%',
+          background: events[eventId].flag,
+          transition: 'background-color 2s',
+        }}
+      />
+      <div css={containerStyles}>
+        <h1>{events[eventId].name}</h1>
         <p>{eventDate.format('MMMM D YYYY')}</p>
         <br />
         {eventDate.isToday() ? (
@@ -57,7 +74,8 @@ function App() {
           <div
             style={{
               display: 'flex',
-              justifyContent: 'space-around',
+              justifyContent: 'space-center',
+              gap: '10px',
               fontSize: '2rem',
             }}
           >
@@ -95,6 +113,7 @@ function App() {
             );
           })}
         </select>
+        <br />
         <select
           value={timezone}
           onChange={(e) => {
@@ -113,19 +132,14 @@ function App() {
           })}
         </select>
       </div>
-      <footer
+      <div
         style={{
-          position: 'sticky',
-          left: 0,
-          bottom: 0,
           height: '30vh',
           width: '100%',
           background: events[eventId].flag,
           transition: 'background-color 2s',
         }}
-      >
-        {/* <img src="/crowd-1295674.svg" alt="crowd of protestors" /> */}
-      </footer>
+      />
     </>
   );
 }
