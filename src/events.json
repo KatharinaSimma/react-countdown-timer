@@ -1,11 +1,5 @@
 [
   {
-    "name": "Tomorrow",
-    "date": "2023-01-26",
-    "link": "https://en.wikipedia.org/wiki/Zero_Discrimination_Day",
-    "flag": "radial-gradient(circle at 9.75% 50%, #0000 6.66%, darkviolet 6.7% 8.33%, #0000 8.4%),   conic-gradient(at 26.66% 50%, #0000 222.75deg, gold 0 317.25deg, #0000 0),   conic-gradient(at 33% 50%, #0000 222.75deg, white 0 317.25deg, #0000 0),   conic-gradient(at 39% 50%, #0000 222.75deg, #ffa6b9 0 317.25deg, #0000 0),    conic-gradient(at 45.66% 50%, #0000 222.75deg, #00d2ff 0 317.25deg, #0000 0), conic-gradient(at 52% 50%, #0000 222.75deg, #753000 0 317.25deg, #0000 0), conic-gradient(at 58.33% 50%, #0000 222.75deg, #000 0 317.25deg, #0000 0), linear-gradient(red 0 16.66%, orange 0 33.33%, yellow 0 50%, green 0 66.66%, blue 0 83.33%, indigo 0)"
-  },
-  {
     "name": "Zero Discrimination Day",
     "date": "2023-03-01",
     "link": "https://en.wikipedia.org/wiki/Zero_Discrimination_Day",
@@ -28,5 +22,11 @@
     "date": "2023-11-20",
     "link": "https://en.wikipedia.org/wiki/Transgender_Day_of_Remembrance",
     "flag": "linear-gradient(#00d2ff 20%, #ffa6b9 0 40%, white 0 60%, #ffa6b9 0 80%, #00d2ff 0)"
+  },
+  {
+    "name": "Tomorrow (test date)",
+    "date": "2023-01-27",
+    "link": "https://en.wikipedia.org/wiki/Zero_Discrimination_Day",
+    "flag": "radial-gradient(circle at 9.75% 50%, #0000 6.66%, darkviolet 6.7% 8.33%, #0000 8.4%),   conic-gradient(at 26.66% 50%, #0000 222.75deg, gold 0 317.25deg, #0000 0),   conic-gradient(at 33% 50%, #0000 222.75deg, white 0 317.25deg, #0000 0),   conic-gradient(at 39% 50%, #0000 222.75deg, #ffa6b9 0 317.25deg, #0000 0),    conic-gradient(at 45.66% 50%, #0000 222.75deg, #00d2ff 0 317.25deg, #0000 0), conic-gradient(at 52% 50%, #0000 222.75deg, #753000 0 317.25deg, #0000 0), conic-gradient(at 58.33% 50%, #0000 222.75deg, #000 0 317.25deg, #0000 0), linear-gradient(red 0 16.66%, orange 0 33.33%, yellow 0 50%, green 0 66.66%, blue 0 83.33%, indigo 0)"
   }
 ]

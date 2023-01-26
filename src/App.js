@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import dayjs from 'dayjs/esm';
 import duration from 'dayjs/plugin/duration';
 import isToday from 'dayjs/plugin/isToday';
@@ -22,6 +23,26 @@ const containerStyles = css`
   width: 76vw;
   text-align: center;
   margin: 3rem auto;
+`;
+
+const ImageDiv = styled.div((props) => ({
+  height: '30vh',
+  width: '100%',
+  background: props.flag,
+  transition: 'background-color 2s',
+}));
+
+const counterContainer = css`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1.3rem;
+  font-size: 2rem;
+`;
+
+const counterItem = css`
+  display: flex;
+  flex-direction: column;
 `;
 
 function App() {
@@ -54,16 +75,10 @@ function App() {
   const minutes = countdown.format('m');
   const hours = countdown.format('H');
   const days = Math.floor(countdown.asDays());
+
   return (
     <>
-      <div
-        style={{
-          height: '30vh',
-          width: '100%',
-          background: events[eventId].flag,
-          transition: 'background-color 2s',
-        }}
-      />
+      <ImageDiv flag={events[eventId].flag} />
       <div css={containerStyles}>
         <h1>{events[eventId].name}</h1>
         <p>{eventDate.format('MMMM D YYYY')}</p>
@@ -71,31 +86,32 @@ function App() {
         {eventDate.isToday() ? (
           <div>It's Today</div>
         ) : (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-center',
-              gap: '10px',
-              fontSize: '2rem',
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span>{days}</span>
-              <span>days</span>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span>{hours}</span>
-              <span>hours</span>
-            </div>
+          <div css={counterContainer}>
+            {days ? (
+              <div css={counterItem}>
+                <span>{days}</span>
+                <span>days</span>
+              </div>
+            ) : null}
+            {hours ? (
+              <div css={counterItem}>
+                <span>{hours}</span>
+                <span>hours</span>
+              </div>
+            ) : null}
 
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span>{minutes}</span>
-              <span>minutes</span>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span>{seconds}</span>
-              <span>seconds</span>
-            </div>
+            {minutes ? (
+              <div css={counterItem}>
+                <span>{minutes}</span>
+                <span>minutes</span>
+              </div>
+            ) : null}
+            {seconds ? (
+              <div css={counterItem}>
+                <span>{seconds}</span>
+                <span>seconds</span>
+              </div>
+            ) : null}
           </div>
         )}
 
@@ -104,7 +120,8 @@ function App() {
           <p>More info on Wikipedia</p>
         </a>
         <br />
-        <select value={eventId} onChange={handleEventSelect}>
+        <label htmlFor="eventDropdown">Choose an Event: </label>
+        <select value={eventId} onChange={handleEventSelect} id="eventDropdown">
           {events.map((ev, index) => {
             return (
               <option value={index} key={'event-id-' + ev.name}>
@@ -114,7 +131,10 @@ function App() {
           })}
         </select>
         <br />
+        <br />
+        <label htmlFor="timeZoneDropdown">Choose a time zone: </label>
         <select
+          id="timeZoneDropdown"
           value={timezone}
           onChange={(e) => {
             setTimezone(e.currentTarget.value);
@@ -132,14 +152,7 @@ function App() {
           })}
         </select>
       </div>
-      <div
-        style={{
-          height: '30vh',
-          width: '100%',
-          background: events[eventId].flag,
-          transition: 'background-color 2s',
-        }}
-      />
+      <ImageDiv flag={events[eventId].flag} />
     </>
   );
 }
